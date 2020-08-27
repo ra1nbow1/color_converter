@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="shortcut icon" type="image/x-icon" href="barcode.ico">
+  <meta charset="UTF-8">
+  <title>Romanoff | Color converter</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+  <style type="text/css">
+    body {
+  background-color: #6C6AE9;
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  transition: background-color .5s;
+  transition-timing-function: ease-out;
+}
+
+.center {
+  display: flex;
+  flex-direction:column;
+  justify-content: center;
+  align-items:center;
+  width:100%;
+}
+
+#convert {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 100vh;
+}
+
+input,
+button {
+  font-family: 'Montserrat', sans-serif;
+  background: transparent;
+}
+
+input:focus,
+button:focus {
+  outline: 0 !important;
+}
+
+input {
+  border: none;
+  border-bottom: 2px solid white;
+  box-sizing: border-box;
+  font-size: 40px;
+  line-height: 75px;
+  max-width: 75%;
+  padding: 5px;
+  width: 350px;
+}
+
+@media screen and (max-width: 480px) {
+  input {
+    font-size: 32px;
+  }
+}
+
+#hex {
+  margin: 0 0 30px 0;
+}
+
+#rgb {
+  margin: 0 0 70px 0;
+}
+
+button {
+  border: 2px solid white;
+  background: transparent;
+  border-radius: 5px;
+  color: white;
+  font-size: 25px;
+  padding: 8px;
+  transition: background-color .2s, color .2s;
+  transition-timing-function: ease-out;
+}
+
+h1 {
+  align-self: flex-start;
+  color: white;
+  font-weight: 10;
+  font-size: 30px;
+  padding: 0 0 0 30px;
+}
+
+@media screen and (max-width: 480px) {
+  h1 {
+    padding:0;
+    align-self: center;
+  }
+}
+
+::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: black;
+}
+
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: black;
+}
+
+:-ms-input-placeholder {
+  /* IE 10+ */
+  color: black;
+}
+
+:-moz-placeholder {
+  /* Firefox 18- */
+  color: black;
+}
+
+.white {
+  color: white;
+}
+
+.white::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: white;
+}
+
+.white::-moz-placeholder {
+  /* Firefox 19+ */
+  color: white;
+}
+
+.white:-ms-input-placeholder {
+  /* IE 10+ */
+  color: white;
+}
+
+.white:-moz-placeholder {
+  /* Firefox 18- */
+  color: white;
+}
+  </style>
+</head>
+<body>
+
+
+
+<script type="text/javascript">
+      
+    
+if(document.addEventListener){
+  document.addEventListener("DOMContentLoaded", function(){
+    loaded();
+  });
+} else if(document.attachEvent){
+  document.attachEvent("onreadystatechange", function(){
+    loaded();
+  });
+}
+
+function loaded(){
+  
+  setInterval(loop, 250);
+
+}
+
+var x = 0;
+ var titleText = ["Romanoff | Color converter", "Romanoff | Color converte", "Romanoff | Color convert", "Romanoff | Color conver", "Romanoff | Color conve", "Romanoff | Color conv", "Romanoff | Color con", "Romanoff | Color co", "Romanoff | Color c", "Romanoff | Color ", "Romanoff | Color", "Romanoff | Colo", "Romanoff | Col", "Romanoff | Co", "Romanoff | C",  "Romanoff |", "Romanoff", "Romanof", "Romano", "Roman", "Roma", "Rom", "Ro", "R", "Ro", "Rom", "Roma", "Roman", "Romano", "Romanof", "Romanoff", "Romanoff |", "Romanoff | C", "Romanoff | Co", "Romanoff | Col", "Romanoff | Colo", "Romanoff | Color", "Romanoff | Color c", "Romanoff | Color co", "Romanoff | Color con", "Romanoff | Color conv", "Romanoff | Color conve", "Romanoff | Color conver", "Romanoff | Color convert", "Romanoff | Color converte", "Romanoff | Color converter"];
+//var titleText = ["Romanoff", "Romanof", "Romano", "Roman", "Roma", "Rom", "Ro", "R", "Ro", "Rom", "Roma", "Roman", "Romano", "Romanof","Romanoff",];
+
+// "Romanoff | Social media", "Romanoff | Social medi", "Romanoff | Social med", "Romanoff | Social me", "Romanoff | Social m", "Romanoff | Social", "Romanoff | Socia", "Romanoff | Soci", "Romanoff | Soc", "Romanoff | So", "Romanoff | S", "Romanoff |",  "Romanoff |", "Romanoff | S", "Romanoff | So", "Romanoff | Soc", "Romanoff | Soci", "Romanoff | Socia", "Romanoff | Social", "Romanoff | Social m", "Romanoff | Social me", "Romanoff | Social med", "Romanoff | Social medi", "Romanoff | Social media" 
+
+function loop(){
+
+  document.getElementsByTagName("title")[0].innerHTML = titleText[x++%titleText.length];
+
+}
+
+    </script>
+
+
+
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+  var color = "white";
+  var currentColor = "#6C6AE9";
+  $("#hex").on('change keyup paste', function() {
+    $("#rgb").val("");
+    var newColor = $(this).val();
+
+    if (newColor[0] != "#") {
+      newColor = "#" + newColor;
+    }
+    $("body").css("background-color", newColor);
+    currentColor = newColor;
+
+    newColor = newColor.substring(1, newColor.length);
+    if (newColor.length == 3) {
+      newColor = newColor.split("");
+      newColor[0] += newColor[0];
+      newColor[1] += newColor[1];
+      newColor[2] += newColor[2];
+    }
+    if (newColor.length == 6) {
+      newColor = newColor.match(/.{2}/g);
+    }
+
+    if (newColor.length == 3) {
+      newColor[0] = parseInt(newColor[0], 16);
+      newColor[1] = parseInt(newColor[1], 16);
+      newColor[2] = parseInt(newColor[2], 16);
+      if (!isNaN(newColor[0]) && !isNaN(newColor[1]) && !isNaN(newColor[2])) {
+        setFontColor(newColor);
+        $("#rgb").val("rgb(" + newColor[0] + ", " + newColor[1] + ", " + newColor[2] + ")");
+      };
+    }
+  });
+
+  function changeRGB() {
+    $("#hex").val("");
+    var newColor = $("#rgb").val();
+
+    if (newColor[0] != "r") {
+      newColor = "rgb(" + newColor + ")";
+    }
+    $("body").css("background-color", newColor);
+    currentColor = newColor;
+
+    newColor = newColor.substring(4, newColor.length - 1);
+    newColor = newColor.split(",");
+    newColor[0] = parseInt(newColor[0]);
+    newColor[1] = parseInt(newColor[1]);
+    newColor[2] = parseInt(newColor[2]);
+
+    if (newColor.length == 3) {
+
+      if (!isNaN(newColor[0]) && !isNaN(newColor[1]) && !isNaN(newColor[2])) {
+        setFontColor(newColor);
+        newColor[0] = newColor[0].toString(16);
+        newColor[1] = newColor[1].toString(16);
+        newColor[2] = newColor[2].toString(16);
+        newColor[0] = checkIf1(newColor[0]);
+        newColor[1] = checkIf1(newColor[1]);
+        newColor[2] = checkIf1(newColor[2]);
+
+        newColor = newColor.join("").toUpperCase();
+        newColor = "#" + newColor;
+        $("#hex").val(newColor);
+      }
+    }
+  };
+
+  $("#rgb").on('change keyup paste', changeRGB);
+
+  function checkIf1(value) {
+    if (value.length == 1) {
+      return "0" + value;
+    }
+    return value;
+  }
+
+  $("#random").on("click", function() {
+    var red = Math.floor(Math.random() * 256);
+    var green = Math.floor(Math.random() * 256);
+    var blue = Math.floor(Math.random() * 256);
+    $("#rgb").val("rgb(" + red + ", " + blue + ", " + green + ")")
+    changeRGB();
+    $("#random").css("color", currentColor);
+    $("#random").css("background-color", color);
+  });
+
+   
+  function setFontColor(rgb) {
+    var total = rgb[0]*.2126 + rgb[1]*.7152 + rgb[2]*.0722;
+    color = "black";
+    if (total < 255 / 2) {
+      color = "white";
+      $("input").addClass("white");
+    } else {
+      $("input").removeClass("white");
+    }
+    $("input, h1").css("color", color);
+    $("input").css("border-bottom", "2px solid " + color);
+    $("#random").css("border", "2px solid " + color);
+  };
+
+  $("#random").hover(function() {
+      $(this).css("color", currentColor);
+      $(this).css("background-color", color);
+    },
+    function() {
+      $(this).css("background-color", "transparent");
+      $(this).css("color", color);
+    });
+
+  //end of .ready
+});
+  </script>
+  <div id="convert">
+  <h1>Romanoff | Converter</h1>
+  <div class = "center">
+    <input id="hex" class="white" placeholder="HEX">
+    <input id="rgb" class="white" placeholder="RGB">
+    <button id="random">Случайный цвет</button>
+  </div>
+  
+  <!--temporary hard height holding place for future text-->
+  <div style= "height: 77px">  
+  </div>
+</div>
+</body>
+</html>
